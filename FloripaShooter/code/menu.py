@@ -1,10 +1,14 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+import pygame.image
+import pygame.rect
 
 class Menu:
     def __init__(self, window):
         self.window = window
+        self.surf = pygame.image.load("./FloripaShooter/asset/menuBg.jpg")
+        self.rect = self.surf.get_rect(left=0, top=0)
         
 
-    def run(self, ):
-        pass
+    def run(self):
+        
+        self.window.blit(self.surf, self.rect)
+        pygame.display.flip()
