@@ -4,7 +4,7 @@ import pygame.rect
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import MENU_OPTION, WIN_HEIGHT, WIN_WIDTH
+from code.Const import C_GREEN, C_WHITE, MENU_OPTION, WIN_HEIGHT, WIN_WIDTH
 
 
 class Menu:
@@ -19,11 +19,11 @@ class Menu:
         pygame.mixer_music.play(-1)
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(text_size=120, text="Floripa", text_color=(255, 128, 0), text_center_pos=((WIN_WIDTH/2), (WIN_HEIGHT/10)))
-            self.menu_text(text_size=80, text="Shooter", text_color=(255, 155, 0), text_center_pos=((WIN_WIDTH/2), (WIN_HEIGHT/5)))
+            self.menu_text(text_size=120, text="Floripa", text_color=(C_GREEN), text_center_pos=((WIN_WIDTH/2), (WIN_HEIGHT/10)))
+            self.menu_text(text_size=80, text="Shooter", text_color=(C_GREEN), text_center_pos=((WIN_WIDTH/2), (WIN_HEIGHT/5)))
 
             for i in range(len(MENU_OPTION)):
-                 self.menu_text(text_size=40, text=MENU_OPTION[i], text_color=(255, 255, 255), text_center_pos=((WIN_WIDTH/2), 350 + 40*i))
+                 self.menu_text(text_size=40, text=MENU_OPTION[i], text_color=(C_WHITE), text_center_pos=((WIN_WIDTH/2), 350 + 40*i))
 
 
             
