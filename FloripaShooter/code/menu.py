@@ -10,7 +10,7 @@ from code.Const import C_BLACK, C_GREEN, C_SELECT, C_WHITE, MENU_OPTION, WIN_HEI
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load("./FloripaShooter/asset/menuBg.jpg")
+        self.surf = pygame.image.load("./FloripaShooter/asset/menuBg.jpg").convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
         
 
