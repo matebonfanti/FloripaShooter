@@ -6,10 +6,11 @@
 
 
 
+import random
 import sys
 from pygame.font import Font
 import pygame
-from code.Const import WIN_HEIGHT, C_WHITE
+from code.Const import EVENT_ENEMY, MENU_OPTION, SPAWN_TIME, WIN_HEIGHT, C_WHITE
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 
@@ -18,15 +19,18 @@ from code.EntityFactory import EntityFactory
 
 class Level:
     def __init__(self, window, name, game_mode):
-        
+        self.timeout = 20000  # milliseconds
         self.window = window
         self.name = name
         self.game_mode = game_mode
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
         self.entity_list.append(EntityFactory.get_entity('player1',))
+
+        if game_mode in [MENU_OPTION[1], MENU_OPTION[2]]:
+            self.entity_list.append(EntityFactory.get_entity('player2',))
+        pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
         
-        self.timeout = 20000  # milliseconds
     def run(self ):
         pygame.mixer_music.load("./FloripaShooter/asset/music1.wav")
         pygame.mixer_music.play(-1)
@@ -40,7 +44,10 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-            
+                if event.type == EVENT_ENEMY:
+                    choice = random.choice(('enemy1', 'enemy2'))
+                    self.entity_list.append(EntityFactory.get_entity(choice))
+                    
 
             self.level_text(text_size=14, text=f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', text_color=(C_WHITE), text_pos=((10), (WIN_HEIGHT - 20)))
             self.level_text(text_size=14, text=f'fps: {clock.get_fps():.0f}', text_color=C_WHITE, text_pos=((120, WIN_HEIGHT - 20)))

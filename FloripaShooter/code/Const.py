@@ -1,3 +1,6 @@
+import pygame
+
+
 WIN_WIDTH  = 1024
 WIN_HEIGHT = 559
 
@@ -24,4 +27,27 @@ ENTITY_SPEED={
     'Level1Bg5': 5,
     'Level1Bg6': 6,
     'Level1Bg7': 7,
+    'player1': 3,
+    'player2': 3,
+    'enemy1': 2,
+    'enemy2': 1,
 }
+
+
+
+PLAYER_KEY_UP = {'player1': pygame.K_UP,
+                 'player2': pygame.K_w}
+PLAYER_KEY_DOWN = {'player1': pygame.K_DOWN,
+                   'player2': pygame.K_s}
+PLAYER_KEY_LEFT = {'player1': pygame.K_LEFT,
+                   'player2': pygame.K_a}
+PLAYER_KEY_RIGHT = {'player1': pygame.K_RIGHT,
+                    'player2': pygame.K_d}
+PLAYER_KEY_SHOOT = {'player1': pygame.K_RCTRL,
+                     'player2': pygame.K_LCTRL}
+
+
+EVENT_ENEMY = pygame.USEREVENT + 1
+
+
+SPAWN_TIME = 1000
