@@ -10,6 +10,7 @@ import random
 import sys
 from pygame.font import Font
 import pygame
+from code.EntityMediator import EntityMediator
 from code.Const import EVENT_ENEMY, MENU_OPTION, SPAWN_TIME, WIN_HEIGHT, C_WHITE
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
@@ -49,10 +50,14 @@ class Level:
                     self.entity_list.append(EntityFactory.get_entity(choice))
                     
 
-            self.level_text(text_size=14, text=f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', text_color=(C_WHITE), text_pos=((10), (WIN_HEIGHT - 20)))
-            self.level_text(text_size=14, text=f'fps: {clock.get_fps():.0f}', text_color=C_WHITE, text_pos=((120, WIN_HEIGHT - 20)))
-            self.level_text(text_size=14, text=f'entidades: {len(self.entity_list)}', text_color=(C_WHITE), text_pos=((160, WIN_HEIGHT - 20)))
+            self.level_text(text_size=14, text=f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', text_color=(C_WHITE), text_pos=(10, WIN_HEIGHT - 20))
+            self.level_text(text_size=14, text=f'fps: {clock.get_fps():.0f}', text_color=C_WHITE, text_pos=(120, WIN_HEIGHT - 20))
+            self.level_text(text_size=14, text=f'entidades: {len(self.entity_list)}', text_color=(C_WHITE), text_pos=(160, WIN_HEIGHT - 20))
             pygame.display.flip()
+
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
+
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size, bold=True, italic=False)
         text_surf: pygame.Surface = text_font.render(text, True, text_color).convert_alpha()
