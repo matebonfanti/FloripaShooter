@@ -50,7 +50,23 @@ class EntityMediator:
     def verify_health(entity_list: list[Entity]):
         for ent in entity_list:
             if ent.health <= 0:
+                if isinstance(ent, Enemy):
+                    EntityMediator.__give_score(ent, entity_list)
                 entity_list.remove(ent)
+
+
+    @staticmethod
+    def __give_score(enemy: Enemy, entity_list: list[Entity]):
+        if enemy.last_dmg == 'player1Shoot':
+            for ent in entity_list:
+                if ent.name == 'player1':
+                    ent.score += enemy.score
+        elif enemy.last_dmg == 'player2Shoot':
+            for ent in entity_list:
+                if ent.name == 'player2':
+                    ent.score += enemy.score
+        
+
 
     @staticmethod
     def verify_collision(entity_list: list[Entity]):

@@ -47,7 +47,12 @@ class Level:
                     shoot = entity.shoot()
                     if shoot is not None:
                         self.entity_list.append(shoot)
-
+                if entity.name == 'player1':
+                    self.level_text(text_size=20, text=f'Conceição - Vida: {entity.health}  -  Pontos: {entity.score}', text_color=(C_WHITE), text_pos=(10, 50))
+                    #self.level_text(text_size=20, text=f'Score: {entity.score}', text_color=(C_WHITE), text_pos=(10, 60))
+                if entity.name == 'player2':
+                    self.level_text(text_size=20, text=f'Peri - Vida: {entity.health}  -  Pontos: {entity.score}', text_color=(C_WHITE), text_pos=(10, 65))
+                    #self.level_text(text_size=20, text=f'Score: {entity.score}', text_color=(C_WHITE), text_pos=(10, 100))
                     
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -57,10 +62,11 @@ class Level:
                     choice = random.choice(('enemy1', 'enemy2'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
                     
-
-            self.level_text(text_size=14, text=f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', text_color=(C_WHITE), text_pos=(10, WIN_HEIGHT - 20))
-            self.level_text(text_size=14, text=f'fps: {clock.get_fps():.0f}', text_color=C_WHITE, text_pos=(120, WIN_HEIGHT - 20))
-            self.level_text(text_size=14, text=f'entidades: {len(self.entity_list)}', text_color=(C_WHITE), text_pos=(160, WIN_HEIGHT - 20))
+                
+            self.level_text(text_size=30, text=f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', text_color=(C_WHITE), text_pos=(10, 20))
+            self.level_text(text_size=20, text=f'entidades: {len(self.entity_list)}', text_color=(C_WHITE), text_pos=(10, WIN_HEIGHT - 20))
+            self.level_text(text_size=20, text=f'fps: {clock.get_fps():.0f}', text_color=C_WHITE, text_pos=(10, WIN_HEIGHT - 34))
+            
             pygame.display.flip()
 
             EntityMediator.verify_collision(entity_list=self.entity_list)

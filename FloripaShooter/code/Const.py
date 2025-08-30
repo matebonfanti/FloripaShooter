@@ -15,8 +15,10 @@ COLOR_ORANGE = (255, 128, 0)
 C_WHITE = (255, 255, 255)
 C_BLACK = (0, 0, 0)
 C_RED = (255, 0, 0)
-C_GREEN = (0, 255, 0)
+C_GREEN = (0, 128, 0)
 C_SELECT = (255, 255, 50)
+C_CIANO = (0, 128, 128)
+C_YELLOW = (255, 255, 0)
 
 ENTITY_SPEED={
     'Level1Bg0': 0,
@@ -46,9 +48,9 @@ ENTITY_HEALTH={
     'Level1Bg5': 999,
     'Level1Bg6': 999,
     'Level1Bg7': 999,
-    'player1': 3,
+    'player1': 100,
     'player1Shoot': 1,
-    'player2': 3,
+    'player2': 100,
     'player2Shoot': 1,
     'enemy1': 50,
     'enemy1Shoot': 1,
@@ -65,14 +67,35 @@ ENTITY_DAMAGE={
     'Level1Bg5': 0,
     'Level1Bg6': 0,
     'Level1Bg7': 0,
-    'player1': 1,
+    'player1': 100,
     'player1Shoot': 25,
-    'player2':1,
+    'player2':100,
     'player2Shoot': 20,
     'enemy1': 50,
     'enemy1Shoot': 20,
     'enemy2': 60,
     'enemy2Shoot': 25,
+}
+
+ENTITY_SCORE={
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Level1Bg7': 0,
+    'player1': 0,
+    'player1Shoot': 0,
+    'player2':0,
+    'player2Shoot': 0,
+    'enemy1': 100,
+    'enemy1Shoot': 0,
+    'enemy2': 125,
+    'enemy2Shoot': 0,
+    
+    
 }
 
 ENTITY_SHOOT_DELAY={
