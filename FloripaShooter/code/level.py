@@ -35,7 +35,7 @@ class Level:
         pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
         
     def run(self ):
-        pygame.mixer_music.load("./FloripaShooter/asset/music1.wav")
+        pygame.mixer_music.load("./asset/music1.wav")
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
         while True:

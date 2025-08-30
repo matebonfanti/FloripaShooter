@@ -10,13 +10,13 @@ from code.Const import C_BLACK, C_GREEN, C_SELECT, C_WHITE, MENU_OPTION, WIN_HEI
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load("./FloripaShooter/asset/menuBg.jpg").convert_alpha()
+        self.surf = pygame.image.load("./asset/menuBg.jpg").convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
         
 
     def run(self):
         menu_option = 0
-        pygame.mixer_music.load("./FloripaShooter/asset/Menu.mp3")
+        pygame.mixer_music.load("./asset/Menu.mp3")
         pygame.mixer_music.play(-1)
         while True:
             # desenha o menu
