@@ -56,6 +56,24 @@ ENTITY_HEALTH={
     'enemy2Shoot': 1,
 }
 
+ENTITY_DAMAGE={
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Level1Bg7': 0,
+    'player1': 1,
+    'player1Shoot': 25,
+    'player2':1,
+    'player2Shoot': 20,
+    'enemy1': 50,
+    'enemy1Shoot': 20,
+    'enemy2': 60,
+    'enemy2Shoot': 25,
+}
 
 ENTITY_SHOOT_DELAY={
     'player1': 20,
