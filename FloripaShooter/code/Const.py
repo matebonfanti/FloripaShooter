@@ -28,9 +28,13 @@ ENTITY_SPEED={
     'Level1Bg6': 6,
     'Level1Bg7': 7,
     'player1': 3,
+    'player1Shoot': 5,
     'player2': 3,
-    'enemy1': 2,
+    'player2Shoot': 5,
+    'enemy1': 1,
+    'enemy1Shoot': 2,
     'enemy2': 1,
+    'enemy2Shoot': 6,
 }
 
 ENTITY_HEALTH={
@@ -43,11 +47,22 @@ ENTITY_HEALTH={
     'Level1Bg6': 999,
     'Level1Bg7': 999,
     'player1': 3,
+    'player1Shoot': 1,
     'player2': 3,
+    'player2Shoot': 1,
     'enemy1': 50,
+    'enemy1Shoot': 1,
     'enemy2': 60,
+    'enemy2Shoot': 1,
 }
 
+
+ENTITY_SHOOT_DELAY={
+    'player1': 20,
+    'player2': 10,
+    'enemy1': 100,
+    'enemy2': 80,
+}
 
 
 

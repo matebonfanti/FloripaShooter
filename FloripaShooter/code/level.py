@@ -10,6 +10,8 @@ import random
 import sys
 from pygame.font import Font
 import pygame
+from code.Enemy import Enemy
+from code.Player import Player
 from code.EntityMediator import EntityMediator
 from code.Const import EVENT_ENEMY, MENU_OPTION, SPAWN_TIME, WIN_HEIGHT, C_WHITE
 from code.Entity import Entity
@@ -41,6 +43,12 @@ class Level:
             for entity in self.entity_list:
                 self.window.blit(source=entity.surf, dest=entity.rect)
                 entity.move()
+                if isinstance(entity, (Player, Enemy)):
+                    shoot = entity.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
+
+                    
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()

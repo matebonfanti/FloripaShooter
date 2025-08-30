@@ -2,13 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import pygame
-from code.Const import ENTITY_SPEED, PLAYER_KEY_DOWN, PLAYER_KEY_LEFT, PLAYER_KEY_RIGHT, PLAYER_KEY_UP, WIN_HEIGHT, WIN_WIDTH
+from code.PlayerShoot import PlayerShoot
+from code.Const import ENTITY_SHOOT_DELAY, ENTITY_SPEED, PLAYER_KEY_DOWN, PLAYER_KEY_LEFT, PLAYER_KEY_RIGHT, PLAYER_KEY_SHOOT, PLAYER_KEY_UP, WIN_HEIGHT, WIN_WIDTH
 from code.Entity import Entity
 
 
 class Player(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
+        self.shoot_delay = ENTITY_SHOOT_DELAY[self.name]
         
         
 
@@ -27,4 +29,11 @@ class Player(Entity):
             self.rect.centerx += ENTITY_SPEED[self.name]
        
         
-        pass
+    def shoot(self, ):
+        self.shoot_delay -= 1
+        if self.shoot_delay == 0:
+            self.shoot_delay = ENTITY_SHOOT_DELAY[self.name]
+            pressed_key = pygame.key.get_pressed()
+            if pressed_key[PLAYER_KEY_SHOOT[self.name]]:
+                return PlayerShoot(name=f'{self.name}Shoot', position=(self.rect.centerx, self.rect.centery))
+            pass
